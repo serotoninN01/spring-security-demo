@@ -21,8 +21,10 @@ public class WebSecurityConfig {
                 )
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login.html")
-                        .loginProcessingUrl("/login")
-                        .permitAll()
+                        .loginProcessingUrl("/login") //specify login request url
+//                      .successForwardUrl("/index")
+//                      .defaultSuccessUrl("/index")
+                        .successHandler(new MyAuthenticationSuccessHandler())
                 )
                 .csrf((csrf) -> csrf.
                         disable());
