@@ -25,6 +25,9 @@ public class WebSecurityConfig {
 //                      .successForwardUrl("/index")
 //                      .defaultSuccessUrl("/index")
                         .successHandler(new MyAuthenticationSuccessHandler())
+//                      .failureForwardUrl("/login.html")//forward
+//                      .failureUrl("/login.html")//redirect
+                        .failureHandler(new MyAuthenticationFailureHandler())
                 )
                 .csrf((csrf) -> csrf.
                         disable());
